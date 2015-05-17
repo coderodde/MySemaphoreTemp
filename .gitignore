@@ -3,3 +3,4 @@ manifest.mf
 nbproject
 *.jnilib
 *.o
+/dist/

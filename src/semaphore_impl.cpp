@@ -5,6 +5,7 @@
 
 static const char* CLASS = "net/coderodde/util/concurrent/MacOSXSemaphoreImpl";
 static const char* FIELD = "semaphoreHandle";
+
 static semaphore_t get_semaphore_handle(JNIEnv* env, jobject obj)
 {
     jclass clazz = env->FindClass(CLASS);
@@ -20,13 +21,13 @@ Java_net_coderodde_util_concurrent_MacOSXSemaphoreImpl_init(JNIEnv* env,
     // Create a handle to a semaphore.
     semaphore_t semaphore;
     semaphore_create(current_task(), &semaphore, SYNC_POLICY_FIFO, count);
-    
+
     // Get to the 'semaphoreHandle' field.
     const jclass clazz = 
           env->FindClass(CLASS);
-    
+
     const jfieldID semaphore_field_id = env->GetFieldID(clazz, FIELD, "I");
-    
+
     // Store the value of the semaphore to the Java semaphore object.
     env->SetIntField(obj, semaphore_field_id, semaphore);
 }

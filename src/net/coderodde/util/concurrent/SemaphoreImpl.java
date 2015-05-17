@@ -8,24 +8,24 @@ package net.coderodde.util.concurrent;
  * @version 1.6
  */
 interface SemaphoreImpl {
-    
+
     /**
      * Initialization routine.
      * 
      * @param counter the amount of threads that can pass without blocking.
      */
     void init(int counter);
-    
+
     /**
      * Releases all the resources.
      */
     void clean();
-    
+
     /**
      * Locks the implementing semaphore.
      */
     void lock();
-    
+
     /**
      * Unlocks the implementing semaphore.
      */

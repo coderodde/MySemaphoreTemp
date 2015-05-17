@@ -1,21 +1,18 @@
 package net.coderodde.util.concurrent;
 
 /**
- *
+ * This class implements a semaphore type ported to MacOSX.
+ * 
  * @author Rodion "rodde" Efremov
  * @version 1.6
  */
 public class Semaphore {
 
-    static {
-        
-    }
-    
     /**
      * Holds the actual native implementation of this semaphore.
      */
     private final SemaphoreImpl impl;
-    
+
     /**
      * Constructs a new semaphore with <code>counter</code> permits.
      * 
@@ -40,7 +37,7 @@ public class Semaphore {
     public void unlock() {
         impl.unlock();
     }
-    
+
     /**
      * Checks the sanity of <code>counter</code>.
      * 
